@@ -62,9 +62,12 @@
     <script>
     
         var n1 = new Negociacao(new Date(),5,700);   //CRIA UM OBJETO C/ CLASSE JÁ ESPECIF. SEUS ATRIBUTOS
-        var volume = n1.obtemVolume();  //CHAMA O MÉTODO OBTÉM VOLUME, PROVENIENTE DA CLASSE NEGOCIACAO
+        var volume = n1.getVolume();  //CHAMA O MÉTODO OBTÉM VOLUME, PROVENIENTE DA CLASSE NEGOCIACAO
         console.log(n1);
-        console.log(volume);
+        console.log(n1.getData());
+        console.log(n1.getQuantidade());
+        console.log(n1.getValor());
+        console.log(n1.getVolume());
 
     </script>
 </body>

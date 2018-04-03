@@ -1,13 +1,25 @@
 class Negociacao {                 //CLASSE CONTENDO NEGOCIAÇÕES
 
      constructor(data,quantidade,valor) {               //FUNÇÃO CONSTRUTORA CONTENDO ATRIBUTOS DA CLASSE
-         this.data = data;                  //COMO O NOVO OBJETO PASSARÁ OS ATRIBUTOS DA CLASSE
-         this.quantidade = quantidade;      //PREENCHEMOS OS ATRIBUTOS DO CONSTRUTOR
-         this.valor = valor;                //COM AS VARIÁVEIS RECEBIDAS
+         this._data = data;                  //COMO O NOVO OBJETO PASSARÁ OS ATRIBUTOS DA CLASSE PREENCHEMOS
+         this._quantidade = quantidade;      //OS ATRIBUTOS DO CONSTRUTOR COM AS VARIÁVEIS RECEBIDAS
+         this._valor = valor;                //UTILIZAMOS O UNDERSCORE EM ATRIBUTOS QUE N DEVEM SER ACESSADOS FORA DA CLASSE
      }
 
-    obtemVolume() {                            //CRIA O MÉTODO OBTÉM VOLUME, UMA FUNÇÃO DA CLASSE NEGOCIACAO
-         return this.quantidade * this.valor;  //CALCULA O VOLUME COM BASE NOS VALORES ATUAIS DO OBJETO INSTANCIADO
+    getVolume() {                            //CRIA O MÉTODO OBTÉM VOLUME, UMA FUNÇÃO DA CLASSE NEGOCIACAO
+         return this._quantidade * this._valor;  //CALCULA O VOLUME COM BASE NOS VALORES ATUAIS DO OBJETO INSTANCIADO
      }
+
+    getData() {                     //COMO OS ATRIBUTOS POSSUEM UNDERSCORE, UTILIZAMOS MÉTODOS ACESSADORES
+         return this._data;         //QUE RETORNAM OS ATRIBUTOS QUANDO NECESSÁRIO
+    }
+
+    getQuantidade() {
+        return this._quantidade;
+    }
+
+    getValor() {
+        return this._valor;
+    }
 
 }
