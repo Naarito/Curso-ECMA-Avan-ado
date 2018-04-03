@@ -61,13 +61,13 @@
     <script src="js/app/models/Negociacao.js"></script>
     <script>
     
-        var n1 = new Negociacao(new Date(),5,700);   //CRIA UM OBJETO C/ CLASSE JÁ ESPECIF. SEUS ATRIBUTOS
-        var volume = n1.getVolume();  //CHAMA O MÉTODO OBTÉM VOLUME, PROVENIENTE DA CLASSE NEGOCIACAO
+        var n1 = new Negociacao(new Date(),5,700);   //CRIA UM OBJETO C/ CLASSE JÁ ESPECIFICANDO SEUS ATRIBUTOS
+        
         console.log(n1);
-        console.log(n1.getData());
-        console.log(n1.getQuantidade());
-        console.log(n1.getValor());
-        console.log(n1.getVolume());
+        console.log(n1.data);                       //ACESSANDO OS ATRIBUTOS DE MANEIRA DIRETA
+        console.log(n1.quantidade);                 //POSSIVEL GRAÇAS A SINTAXE GET NOS METODOS ACESSADORES
+        console.log(n1.valor);
+        console.log(n1.volume);
 
     </script>
 </body>

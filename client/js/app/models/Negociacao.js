@@ -6,19 +6,19 @@ class Negociacao {                 //CLASSE CONTENDO NEGOCIAÇÕES
          this._valor = valor;                //UTILIZAMOS O UNDERSCORE EM ATRIBUTOS QUE N DEVEM SER ACESSADOS FORA DA CLASSE
      }
 
-    getVolume() {                            //CRIA O MÉTODO OBTÉM VOLUME, UMA FUNÇÃO DA CLASSE NEGOCIACAO
+    get volume() {                            //CRIA O MÉTODO OBTÉM VOLUME, UMA FUNÇÃO DA CLASSE NEGOCIACAO
          return this._quantidade * this._valor;  //CALCULA O VOLUME COM BASE NOS VALORES ATUAIS DO OBJETO INSTANCIADO
      }
 
-    getData() {                     //COMO OS ATRIBUTOS POSSUEM UNDERSCORE, UTILIZAMOS MÉTODOS ACESSADORES
+    get data() {                     //COMO OS ATRIBUTOS POSSUEM UNDERSCORE, UTILIZAMOS MÉTODOS ACESSADORES
          return this._data;         //QUE RETORNAM OS ATRIBUTOS QUANDO NECESSÁRIO
     }
 
-    getQuantidade() {
+    get quantidade() {              //A SINTAXE GET PERMITE CHAMAR ATRIBUTOS SEM SER NECESSÁRIO O "GET" E "()"
         return this._quantidade;
     }
 
-    getValor() {
+    get valor() {
         return this._valor;
     }
 
