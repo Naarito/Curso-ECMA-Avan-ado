@@ -4,20 +4,31 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
 
         let $ = document.querySelector.bind(document);      //CRIA UM ATALHO PARA O QUERY SELECTOR
 
-        this.inputData = $('#data');
-        this.inputQuantidade = $('#quantidade');         //BUSCA OS CAMPOS PELOS SEUS IDENTIFICADORES
-        this.inputValor = $('#valor');
+        this._inputData = $('#data');
+        this._inputQuantidade = $('#quantidade');         //BUSCA OS CAMPOS PELOS SEUS IDENTIFICADORES
+        this._inputValor = $('#valor');
 
     }
 
     adiciona(event) {           //CRIA UM MÉTODO QUE RECEBE COMO ARGUMENTO O EVENTO UTILIZADO NO 
         
         event.preventDefault();                    //EVITA O RELOAD, AÇÃO PADRÃO DO EVENTO
-        console.log('Controller Chamado!');
+        
+        console.log(typeof(this._inputData.value));
 
-        console.log(this.inputData.value);
-        console.log(this.inputQuantidade.value);
-        console.log(this.inputValor.value);
+        console.log(this._inputData.value);
+
+        let data = new Date(this._inputData.value.split('-'));
+
+        console.log(data);
+
+        /*let negociacao = new Negociacao(           //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS
+            this._inputData.value,
+            this._inputQuantidade.value,            
+            this._inputValor.valor
+        );
+        
+        console.log(negociacao);*/
 
     }
 

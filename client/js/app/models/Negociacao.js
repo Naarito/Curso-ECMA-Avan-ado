@@ -1,10 +1,12 @@
 class Negociacao {                 //CLASSE CONTENDO NEGOCIAÇÕES
 
     constructor(data,quantidade,valor) {               //FUNÇÃO CONSTRUTORA CONTENDO ATRIBUTOS DA CLASSE
+        
         this._data = new Date(data.getTime());         //COMO O NOVO OBJETO PASSARÁ OS ATRIBUTOS DA CLASSE PREENCHEMOS
         this._quantidade = quantidade;      //OS ATRIBUTOS DO CONSTRUTOR COM AS VARIÁVEIS RECEBIDAS
         this._valor = valor;                //UTILIZAMOS O UNDERSCORE EM ATRIBUTOS QUE N DEVEM SER ACESSADOS FORA DA CLASSE
         Object.freeze(this);                //CONGELA A INSTANCIA DO OBJETO, BLOQUEANDO A ALTERAÇÃO DOS ATRIBUTOS
+        
     }
 
     get volume() {                               //CRIA O MÉTODO OBTÉM VOLUME, UMA FUNÇÃO DA CLASSE NEGOCIACAO
