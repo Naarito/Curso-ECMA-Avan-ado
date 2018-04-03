@@ -19,9 +19,9 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
             .map((item,indice) => item = item - indice % 2) //ARROW FUNCTION QUE DÁ O RETORNO DO RESULTADO ITEM
         );
 
-        let negociacao = new Negociacao(           //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS
+        let negociacao = new Negociacao(           //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS DOM
             data,                                  //IMPORTANTE, NÃO USAR _INPUTDATA, USAR O VALOR ALTERADO
-            this._inputQuantidade.value,            
+            this._inputQuantidade.value,           
             this._inputValor.value
         );
         
