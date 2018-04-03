@@ -61,8 +61,8 @@
     <script src="js/app/models/Negociacao.js"></script>
     <script>
         
-        var hoje = new Date(); //OBJETO TIPO DATA
-        var n1 = new Negociacao(hoje,5,700);   //CRIA UM OBJETO C/ CLASSE JÁ ESPECIFICANDO SEUS ATRIBUTOS
+        let hoje = new Date(); //OBJETO TIPO DATA  / USAMOS LET PARA LIMITAR O ESCOPO DA VARIAVEL AO BLOCO
+        let n1 = new Negociacao(hoje,5,700);   //CRIA UM OBJETO C/ CLASSE JÁ ESPECIFICANDO SEUS ATRIBUTOS
         hoje.setDate(12);
         console.log(n1);
         console.log(n1.data);                       //ACESSANDO OS ATRIBUTOS DE MANEIRA INDIRETA
