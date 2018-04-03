@@ -1,3 +1,4 @@
+<!-- -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,9 @@
     
     <h1 class="text-center">Negociações</h1>
     
-    <form class="form">
+    <form class="form" onsubmit="negociacaoController.adiciona(event)"> 
+        <!-- Quando ocorre o evento "onsubmit" do formulário, chama a instância do controlador de negociação,
+        passando o evento como argumento -->
         
         <div class="form-group">
             <label for="data">Data</label>
@@ -59,16 +62,10 @@
         </tfoot>
     </table>
     <script src="js/app/models/Negociacao.js"></script>
+    <script src="js/app/controllers/NegociacaoController.js"></script>
     <script>
-        
-        let hoje = new Date(); //OBJETO TIPO DATA  / USAMOS LET PARA LIMITAR O ESCOPO DA VARIAVEL AO BLOCO
-        let n1 = new Negociacao(hoje,5,700);   //CRIA UM OBJETO C/ CLASSE JÁ ESPECIFICANDO SEUS ATRIBUTOS
-        hoje.setDate(12);
-        console.log(n1);
-        console.log(n1.data);                       //ACESSANDO OS ATRIBUTOS DE MANEIRA INDIRETA
-        console.log(n1.quantidade);                 //POSSIVEL GRAÇAS A SINTAXE GET NOS METODOS ACESSADORES
-        console.log(n1.valor);
-        console.log(n1.volume);
+    
+        let negociacaoController = new NegociacaoController(); //Instancia um objeto contendo o controlador
 
     </script>
 </body>
