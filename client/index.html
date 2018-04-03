@@ -58,6 +58,19 @@
         <tfoot>
         </tfoot>
     </table>
+    <script src="js/app/models/Negociacao.js"></script>
+    <script>
     
+        var n1 = new Negociacao();          //CRIA UM OBJETO COM A CLASSE NEGOCIAÇÃO
+        console.log(n1);
+        n1.quantidade = 10;         //ALTERANDO O ATRIBUTO DA CLASSE DO OBJETO N1
+        console.log(n1);
+
+        var n2 = new Negociacao();          //UTILIZAMOS O NEW PARA ATRELAR OS ATRIBUTOS DO CONSTRUTOR AO OBJETO
+        console.log(n2);
+        n2.valor = 10.0;            //ALTERANDO O ATRIBUTO DA CLASSE DO OBJETO N2
+        console.log(n2);
+    
+    </script>
 </body>
 </html>
