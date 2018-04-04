@@ -38,11 +38,9 @@ class NegociacoesView {
                 <td colspan="3"></td>
                 <td>
                 ${
-                    (function(){
-                        let total = 0;
-                        model.negociacoes.forEach(n=> total += n.volume);   //PARA CADA ITEM DO ARRAY, SOMAR AO TOTAL O VOLUME
-                        return total;               //RETORNAR O TOTAL AO FIM DA ITERAÇÃO
-                    })()
+                    model.negociacoes.reduce((total,n)=>{  //UTILIZA A FUNÇÃO REDUCE QUE PERCORRE O ARRAY
+                        return total + n.volume;    //SOMANDO AO TOTAL O VALOR DE N.VOLUME DE TODOS SEUS ITENS
+                    }, 0.0) //DEFININDO O VALOR INICIAL DA VARIAVEL TOTAL
                 }
                 </td>
             </tfoot>
