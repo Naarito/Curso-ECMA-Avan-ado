@@ -1,6 +1,6 @@
 class View {            //CLASSE PAI QUE CONTÉM ELEMENTOS QUE SERÃO REUTILIZADOS
 
-    constructor() {
+    constructor(elemento) {
 
         this._elemento = elemento;
     }
@@ -11,7 +11,7 @@ class View {            //CLASSE PAI QUE CONTÉM ELEMENTOS QUE SERÃO REUTILIZAD
 
     update(model) {
 
-        this.elemento.innerHTML = this.template(model);
+        this._elemento.innerHTML = this.template(model);
 
     }
 
