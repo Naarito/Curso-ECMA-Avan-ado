@@ -14,11 +14,8 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         
         event.preventDefault();           //EVITA O RELOAD, AÇÃO PADRÃO DO EVENTO
 
-        let helper = new DateHelper();          //INVOCA O HELPER DE DATAS
-      
-
         let negociacao = new Negociacao(        //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS DOM
-            helper.textoParaData(this._inputData.value),       //APLICA O METODO CONVERSOR DO HELPER PARA FORMATO DATA
+            DateHelper.textoParaData(this._inputData.value),       //APLICA O METODO CONVERSOR DO HELPER
             this._inputQuantidade.value,           
             this._inputValor.value
         );
@@ -26,7 +23,7 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         console.log(negociacao);
         console.log(negociacao.volume);
 
-        let diaMesAno = helper.dataPataTexto(negociacao.data);   //APLICA O METODO CONVERSOR DO HELPER PARA FORMATO TEXTO
+        let diaMesAno = DateHelper.dataPataTexto(negociacao.data);   //O MÉTODO CONVERSOR  ESTÁTICO CHAMADO DIRETO, SEM INSTANCIA
 
         console.log(diaMesAno);
 
