@@ -1,9 +1,8 @@
-class NegociacoesView {
-    
+class NegociacoesView extends View{
 
-    constructor(elemento){
-        this._elemento = elemento;      //RECEBE O ELEMENTO DA DOM REFERENCIADO NO CONTROLLER
-    }   
+    constructor(elemento) {
+        super(elemento);        //RECEBE ELEMENTOS DA CLASSE PAI
+    }
 
     _template(model) {           //TEMPLATE A SER INSERIDO
         return `
@@ -46,12 +45,6 @@ class NegociacoesView {
             </tfoot>
         </table>
         `;          //O METODO JOIN FAZ COM QUE O ARRAY DE STRINGS DGERADAS SE UNAM EM UMA UNICA STRING 
-    }
-
-    update(model) {
-
-        this._elemento.innerHTML = this._template(model);  //PEGA A DIV E TRANSFORMA EM ELEMENTO DOM, INSERINDO O TEMPLATE NO LUGAR
-
     }
 
 }
