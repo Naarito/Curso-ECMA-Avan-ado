@@ -9,7 +9,7 @@ class ListaNegociacoes {
     }
 
     get negociacoes() {             //GETTER DE ARRAY CONTENDO NEGOCIACOES
-        return this._negociacoes;
+        return [].concat(this._negociacoes);      //CRIA NOVO ARRAY BASEADO NA LISTA ORIGINAL, BLINDANDO NOSSA LISTA
     }
-    
+
 }
