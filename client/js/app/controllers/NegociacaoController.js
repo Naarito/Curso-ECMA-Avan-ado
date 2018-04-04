@@ -12,20 +12,23 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
 
     adiciona(event) {           //CRIA UM MÉTODO QUE RECEBE COMO ARGUMENTO O EVENTO UTILIZADO NO 
         
-        event.preventDefault();                    //EVITA O RELOAD, AÇÃO PADRÃO DO EVENTO
+        event.preventDefault();           //EVITA O RELOAD, AÇÃO PADRÃO DO EVENTO
 
-        let data = new Date(
-            ...this._inputData.value.split('-') //TRANSFORMA A STRING EM UM ARRAY DE TRÊS ELEMENTOS
-            .map((item,indice) => item = item - indice % 2) //ARROW FUNCTION QUE DÁ O RETORNO DO RESULTADO ITEM
-        );
+        let helper = new DateHelper();          //INVOCA O HELPER DE DATAS
+      
 
-        let negociacao = new Negociacao(           //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS DOM
-            data,                                  //IMPORTANTE, NÃO USAR _INPUTDATA, USAR O VALOR ALTERADO
+        let negociacao = new Negociacao(        //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS DOM
+            helper.textoParaData(this._inputData.value),       //APLICA O METODO CONVERSOR DO HELPER PARA FORMATO DATA
             this._inputQuantidade.value,           
             this._inputValor.value
         );
         
         console.log(negociacao);
+        console.log(negociacao.volume);
+
+        let diaMesAno = helper.dataPataTexto(negociacao.data);   //APLICA O METODO CONVERSOR DO HELPER PARA FORMATO TEXTO
+
+        console.log(diaMesAno);
 
     }
 
