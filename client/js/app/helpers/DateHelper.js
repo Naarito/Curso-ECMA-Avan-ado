@@ -5,10 +5,15 @@ class DateHelper {
     }
 
     static dataPataTexto(data){         //METODO ESTÁTICO PODE SER ACESSADO SEM CRIAR UMA NOVA INSTANCIA
-        return data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear();
+        return `${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}`;
     }
     
     static textoParaData(texto){
+        
+        if(!/\d{4}-\d{2}-\d{2}/.test(texto)){
+            throw new Error('Data deve estar no formato aaaa-mm-dd ao entrar no textoParaData');
+        }
+
         return new Date(...texto.split('-') //TRANSFORMA A STRING EM UM ARRAY DE TRÊS ELEMENTOS
             .map((item,indice) => item = item - indice % 2)); //ARROW FUNCTION QUE DÁ O RETORNO DO RESULTADO ITEM
     }
