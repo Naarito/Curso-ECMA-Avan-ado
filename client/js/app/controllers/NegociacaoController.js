@@ -7,7 +7,10 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');         //BUSCA OS CAMPOS PELOS SEUS IDENTIFICADORES
         this._inputValor = $('#valor');
-        this._listaNegociacoes = new ListaNegociacoes();
+        this._listaNegociacoes = new ListaNegociacoes();    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
+        this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
+        
+        this._negociacoesView.update(); //ATUALIZA A VIEW
 
     }
 
