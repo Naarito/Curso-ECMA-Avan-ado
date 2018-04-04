@@ -8,9 +8,9 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         this._inputQuantidade = $('#quantidade');         //BUSCA OS CAMPOS PELOS SEUS IDENTIFICADORES
         this._inputValor = $('#valor');
         this._listaNegociacoes = new ListaNegociacoes();    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
-        this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
         
-        this._negociacoesView.update(); //ATUALIZA A VIEW
+        this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
+        this._negociacoesView.update(this._listaNegociacoes); //ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES
 
     }
 
@@ -19,11 +19,12 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         event.preventDefault();           //EVITA O RELOAD, AÇÃO PADRÃO DO EVENTO
 
         let negociacao = this._criaNegociacao();   //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS DOM
-        
         this._listaNegociacoes.adiciona(negociacao); //ENVIA A NEGOCIACAO AO MODELO DE LISTA
 
-        this._limpaFormulario();        //CHAMA A FUNÇÃO QUE LIMPA O FORMULÁRIO
+        this._negociacoesView.update(this._listaNegociacoes); //ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES
 
+        this._limpaFormulario();        //CHAMA A FUNÇÃO QUE LIMPA O FORMULÁRIO
+        
         console.log(this._listaNegociacoes.negociacoes); //EXIBINDO A NEGOCIAÇÃO EM SEU ARRAY, VIA GETTER DO LISTANEGOCIACOES
 
     }

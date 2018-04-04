@@ -4,7 +4,7 @@ class DateHelper {
         throw new Error('DateHelper não pode ser instanciada');     //DECLARA ERRO CASO DATE HELPER SEJA INSTANCIADA
     }
 
-    static dataPataTexto(data){         //METODO ESTÁTICO PODE SER ACESSADO SEM CRIAR UMA NOVA INSTANCIA
+    static dataParaTexto(data){         //METODO ESTÁTICO PODE SER ACESSADO SEM CRIAR UMA NOVA INSTANCIA
         return `${data.getDate()}/${(data.getMonth()+1)}/${data.getFullYear()}`;  //UTIIZA TEMPLATE STRINGS PARA UNIFICAR DADOS E TEXTO
     }
     
