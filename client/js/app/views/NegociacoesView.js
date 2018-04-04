@@ -4,7 +4,7 @@ class NegociacoesView extends View{
         super(elemento);        //RECEBE ELEMENTOS DA CLASSE PAI
     }
 
-    _template(model) {           //TEMPLATE A SER INSERIDO
+    template(model) {           //TEMPLATE A SER INSERIDO
         return `
         <table class="table table-hover table-bordered">
             <thead>
