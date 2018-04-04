@@ -9,8 +9,12 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         this._inputValor = $('#valor');
         this._listaNegociacoes = new ListaNegociacoes();    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
         
-        this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
+        this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INSTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
         this._negociacoesView.update(this._listaNegociacoes); //ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES
+
+        this._mensagem = new Mensagem();    //INSTANCIA A MENSAGEM
+        this._mensagemView = new MensagemView($('#mensagemView')); //INSTANCIA A VIEW DA MENSAGEM, PASSANDO O LOCAL DE INSERÇÃO
+        this._mensagemView.update(this._mensagem);  //ATUALIZA A VIEW PASSANDO A MENSAGEM
 
     }
 
@@ -22,6 +26,9 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         this._listaNegociacoes.adiciona(negociacao); //ENVIA A NEGOCIACAO AO MODELO DE LISTA
 
         this._negociacoesView.update(this._listaNegociacoes); //ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES
+
+        this._mensagem.texto = "Negociação cadastrada com sucesso!"; //DEFINE A MENSAGEM A SER MOSTRADA APOS ADICIONAR
+        this._mensagemView.update(this._mensagem);  //ATUALIZA A VIEW PASSANDO A MENSAGEM
 
         this._limpaFormulario();        //CHAMA A FUNÇÃO QUE LIMPA O FORMULÁRIO
         
