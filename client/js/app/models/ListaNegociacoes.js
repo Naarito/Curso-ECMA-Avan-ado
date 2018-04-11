@@ -1,15 +1,16 @@
 class ListaNegociacoes {
 
-    constructor(contexto, armadilha) {
+    constructor(armadilha) {
         this._negociacoes = [];         //ARRAY DE TODAS AS NEGOCIACOES
         this._armadilha = armadilha;  //RECEBE A FUNÇÃO DE UPDATE DE VIEW
-        this._contexto = contexto;  //RECEBE O CONTEXTO
+
     }
 
     adiciona(negociacao) {
         this._negociacoes.push(negociacao);     //PUSHER DE NEGOCIACOES PARA O ARRAY
-        Reflect.apply(this._armadilha, this._contexto, [this]) //CHAMA O METODO DE ATUALIZAÇÃO, INFORMA QUE O CONTEXTO É O CONTROLLER DE NEGOCIAÇÃO(PARA FUNCIONAR COMO ANTERIORMENTE) 
-    }   //E PASSA PARA ESSA FUNÇÃO A LISTA DE NEGOCIAÇÕES REAL (O THIS LOCAL)
+        this._armadilha(this); //PASSA O THIS (LISTA DE NEGOCIACOES) PARA O ATRIBUTO MODEL DA FUNÇÃO NEGOCIACOESVIEW.UPDATE
+
+    } 
 
     get negociacoes() {             //GETTER DE ARRAY CONTENDO NEGOCIACOES
         return [].concat(this._negociacoes);      //CRIA NOVO ARRAY BASEADO NA LISTA ORIGINAL, BLINDANDO NOSSOS DADOS
@@ -17,6 +18,6 @@ class ListaNegociacoes {
 
     esvazia() {
         this._negociacoes = [];  //LIMPA A LISTA DE NEGOCIAÇÕES
-        Reflect.apply(this._armadilha, this._contexto, [this])
+        this._armadilha(this);
     }
 }

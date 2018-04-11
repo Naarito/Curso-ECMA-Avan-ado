@@ -7,11 +7,11 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');         //BUSCA OS CAMPOS PELOS SEUS IDENTIFICADORES
         this._inputValor = $('#valor');
-        this._listaNegociacoes = new ListaNegociacoes(this, function(model) { //PASSA O THIS REFERENCIANDO O NEGOCIACAO CONTROLLER ASSIM COMO O MÉTODO DE ATUALIZAÇÃO DE VIEW
+        this._listaNegociacoes = new ListaNegociacoes(model => //UTILIZA ARROW FUNCTION PARA TORNAR O PROGRAMA MENOS VERBOSO, ASSIM COMO SEU ESCOPO É LEXICO (UTILIZA O NEGOCIACAOCONTROLER NO THIS)
             
-            this._negociacoesView.update(model); //UTILIZA O MÉTODO QUE ATUALIZA A VIEW, RECEBENDO O THIS DO NEGOCIACAOCONTROLLER E O MODEL SENDO A LISTA DE NEGOCIACOES
+            this._negociacoesView.update(model) //UTILIZA O MÉTODO QUE ATUALIZA A VIEW, RECEBENDO O THIS DO NEGOCIACAOCONTROLLER E O MODEL SENDO A LISTA DE NEGOCIACOES
 
-        });    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
+        );    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
         
         this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INSTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
         this._negociacoesView.update(this._listaNegociacoes); //ACIONA O MÉTODO QUE ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES INICIAL A MESMA
