@@ -44,6 +44,14 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         );
     }
 
+    apagaNegociacao () {
+        this._listaNegociacoes.esvazia();
+        this._negociacoesView.update(this._listaNegociacoes);
+
+        this._mensagem.texto = "Negociações apagadas com sucesso!";
+        this._mensagemView.update(this._mensagem);
+    }
+
     _limpaFormulario() {
 
         this._inputData.value = '';

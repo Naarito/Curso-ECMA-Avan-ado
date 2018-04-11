@@ -12,4 +12,7 @@ class ListaNegociacoes {
         return [].concat(this._negociacoes);      //CRIA NOVO ARRAY BASEADO NA LISTA ORIGINAL, BLINDANDO NOSSOS DADOS
     }
 
+    esvazia() {
+        this._negociacoes = [];  //LIMPA A LISTA DE NEGOCIAÇÕES
+    }
 }
