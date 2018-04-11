@@ -7,10 +7,14 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
         this._inputData = $('#data');
         this._inputQuantidade = $('#quantidade');         //BUSCA OS CAMPOS PELOS SEUS IDENTIFICADORES
         this._inputValor = $('#valor');
-        this._listaNegociacoes = new ListaNegociacoes();    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
+        this._listaNegociacoes = new ListaNegociacoes(this, function(model) { //PASSA O THIS REFERENCIANDO O NEGOCIACAO CONTROLLER ASSIM COMO O MÉTODO DE ATUALIZAÇÃO DE VIEW
+            
+            this._negociacoesView.update(model); //UTILIZA O MÉTODO QUE ATUALIZA A VIEW, RECEBENDO O THIS DO NEGOCIACAOCONTROLLER E O MODEL SENDO A LISTA DE NEGOCIACOES
+
+        });    //INSTANCIA O MODEL DAS LISTAS DE NEGOCIACAO
         
         this._negociacoesView = new NegociacoesView($('#negociacoesView')); //INSTANCIA A VIEW, PASSANDO O LOCAL DE INSERÇÃO
-        this._negociacoesView.update(this._listaNegociacoes); //ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES
+        this._negociacoesView.update(this._listaNegociacoes); //ACIONA O MÉTODO QUE ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES INICIAL A MESMA
 
         this._mensagem = new Mensagem();    //INSTANCIA A MENSAGEM
         this._mensagemView = new MensagemView($('#mensagemView')); //INSTANCIA A VIEW DA MENSAGEM, PASSANDO O LOCAL DE INSERÇÃO
@@ -24,8 +28,6 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
 
         let negociacao = this._criaNegociacao();   //CRIA UMA INSTANCIA DA NEGOCIACAO COM OS DADOS DOS CAMPOS DOM
         this._listaNegociacoes.adiciona(negociacao); //ENVIA A NEGOCIACAO AO MODELO DE LISTA
-
-        this._negociacoesView.update(this._listaNegociacoes); //ATUALIZA A VIEW E PASSA A LISTA DE NEGOCIACOES
 
         this._mensagem.texto = "Negociação cadastrada com sucesso!"; //DEFINE A MENSAGEM A SER MOSTRADA APOS ADICIONAR
         this._mensagemView.update(this._mensagem);  //ATUALIZA A VIEW PASSANDO A MENSAGEM
@@ -45,8 +47,7 @@ class NegociacaoController {        //CRIA UM CONTROLADOR PARA INTERAÇÃO COM U
     }
 
     apagaNegociacao () {
-        this._listaNegociacoes.esvazia();
-        this._negociacoesView.update(this._listaNegociacoes);
+        this._listaNegociacoes.esvazia(function() {});
 
         this._mensagem.texto = "Negociações apagadas com sucesso!";
         this._mensagemView.update(this._mensagem);
